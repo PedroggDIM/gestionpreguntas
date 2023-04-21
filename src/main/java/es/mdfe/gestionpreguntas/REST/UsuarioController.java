@@ -21,19 +21,23 @@ import es.mdfe.gestionpreguntas.repositorios.UsuarioRepositorio;
 public class UsuarioController {
 	private final UsuarioRepositorio repositorio;
 	private final UsuarioAssembler assembler;
+	private final UssuarioPostAssembler postAsembler;
+	private final UsuarioPutAssembler putAssembler;
 	private final UsuarioListaAssembler listaAssembler;
 	private final Logger log;
 
 	UsuarioController(UsuarioRepositorio repositorio, UsuarioAssembler assembler,
-			UsuarioListaAssembler listaAssembler) {
+			UssuarioPostAssembler postAssembler, UsuarioPutAssembler putAssembler,UsuarioListaAssembler listaAssembler) {
 		this.repositorio = repositorio;
 		this.assembler = assembler;
+		this.postAsembler = postAssembler;
 		this.listaAssembler = listaAssembler;
+		this.putAssembler = putAssembler;
 		log = GestionpreguntasApplication.log;
 	}
 
 	@GetMapping("{id}")
-	public EntityModel<Usuario> one(@PathVariable Long id) {
+	public UsuarioModel one(@PathVariable Long id) {
 		Usuario usuario = repositorio.findById(id).
 				orElseThrow(() -> new RegisterNotFoundException(id, "usuario"));
 		log.info("Recuperado " + usuario);
@@ -48,23 +52,23 @@ public class UsuarioController {
 	@GetMapping("porNombreUsuario")
 	public CollectionModel<UsuarioListaModel> usuariosporNombreUsuario(@RequestParam String nombreUsuario) {
 		return listaAssembler.toCollection(
-				repositorio.findUsuarioByNombreUsuario(nombreUsuario)
+				repositorio.findUsuarioByNombre(nombreUsuario)
 				);
 	}	
 
 	@PostMapping
-	public EntityModel<Usuario> add(@RequestBody UsuarioModel model) {
-		Usuario usuario = repositorio.save(assembler.toEntity(model));
+	public UsuarioModel add(@RequestBody UsuarioPostModel model) {
+		Usuario usuario = repositorio.save(postAsembler.toEntity(model));
 		log.info("Añadido " + usuario);
 		return assembler.toModel(usuario);
 	}
 	
 	@PutMapping("{id}")
-	public EntityModel<Usuario> edit(@PathVariable Long id, @RequestBody UsuarioModel model) {
+	public UsuarioModel edit(@PathVariable Long id, @RequestBody UsuarioPutModel model) {
 		Usuario usuario = repositorio.findById(id).map(usr -> {
 			usr.setNombre(model.getNombre());
 			usr.setNombreUsuario(model.getNombreUsuario());
-			usr.setRole(model.getRole());
+			//usr.setRole(model.getRole());
 			return repositorio.save(usr);
 		})
 		.orElseThrow(() -> new RegisterNotFoundException(id, "usuario"));

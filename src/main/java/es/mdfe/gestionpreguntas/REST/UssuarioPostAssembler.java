@@ -3,33 +3,33 @@ package es.mdfe.gestionpreguntas.REST;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
-import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;
 
 import es.mdfe.gestionpreguntas.entidades.Usuario;
 
 @Component
-public class UsuarioAssembler implements RepresentationModelAssembler<Usuario, UsuarioModel> {
+public class UssuarioPostAssembler implements RepresentationModelAssembler<Usuario, UsuarioPostModel> {
 
 	@Override
-	public UsuarioModel toModel(Usuario entity) {
-		UsuarioModel model = new UsuarioModel();
+	public UsuarioPostModel toModel(Usuario entity) {
+		UsuarioPostModel model = new UsuarioPostModel();
 		model.setNombre(entity.getNombre());
 		model.setNombreUsuario(entity.getNombreUsuario());
-		model.setRole(entity.getRole());
+		model.setContraseña(entity.getContraseña());
 		model.add(
 				linkTo(methodOn(UsuarioController.class).one(entity.getId())).withSelfRel()
 				);
-		return model;
+		return null;
 	}
 	
-	public Usuario toEntity(UsuarioModel model) {
+	public Usuario toEntity(UsuarioPostModel model) {
 		Usuario usuario = new Usuario();
 		usuario.setNombre(model.getNombre());
 		usuario.setNombreUsuario(model.getNombreUsuario());
-		usuario.setRole(model.getRole());
+		usuario.setContraseña(model.getContraseña());
 		return usuario;
 	}
-	
+
 }
+
