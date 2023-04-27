@@ -17,7 +17,8 @@ public class UsuarioAssembler implements RepresentationModelAssembler<Usuario, U
 		UsuarioModel model = new UsuarioModel();
 		model.setNombre(entity.getNombre());
 		model.setNombreUsuario(entity.getNombreUsuario());
-		model.setRole(entity.getRole());
+		model.setContrasenia(entity.getContrasenia());
+//		model.setRole(entity.getRole());
 		model.add(
 				linkTo(methodOn(UsuarioController.class).one(entity.getId())).withSelfRel()
 				);
@@ -28,7 +29,8 @@ public class UsuarioAssembler implements RepresentationModelAssembler<Usuario, U
 		Usuario usuario = new Usuario();
 		usuario.setNombre(model.getNombre());
 		usuario.setNombreUsuario(model.getNombreUsuario());
-		usuario.setRole(model.getRole());
+		usuario.setContrasenia(model.getContrasenia());
+//		usuario.setRole(model.getRole());
 		return usuario;
 	}
 	

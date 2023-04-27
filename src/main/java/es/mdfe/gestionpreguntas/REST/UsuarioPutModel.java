@@ -9,8 +9,9 @@ public class UsuarioPutModel extends RepresentationModel<UsuarioPutModel>{
 	
 	private String nombre;
 	private String nombreUsuario;
-	private String telefono;
-	private Role role;
+	private String contrasenia;
+//	private String telefono;
+//	private Role role;
 	public String getNombre() {
 		return nombre;
 	}
@@ -23,23 +24,16 @@ public class UsuarioPutModel extends RepresentationModel<UsuarioPutModel>{
 	public void setNombreUsuario(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
 	}
-	public String getTelefono() {
-		return telefono;
+	public String getContrasenia() {
+		return contrasenia;
 	}
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-	public Role getRole() {
-		return role;
-	}
-	public void setRole(Role role) {
-		this.role = role;
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
 	}
 	@Override
 	public String toString() {
-		return "UsuarioPutModel [nombre=" + nombre + ", nombreUsuario=" + nombreUsuario + ", telefono=" + telefono
-				+ ", role=" + role + "]";
-	}
-	
+		return "UsuarioPutModel [nombre=" + nombre + ", nombreUsuario=" + nombreUsuario + ", contrasenia=" + contrasenia
+				+ "]";
+	}	
 	
 }

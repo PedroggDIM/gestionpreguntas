@@ -21,8 +21,8 @@ public class Usuario {
 	private Long id;
 	private String nombre;
 	private String nombreUsuario;
-	private String contraseña;
-	private Role role;
+	private String contrasenia;
+//	private Role role;
 	public Long getId() {
 		return id;
 	}
@@ -41,23 +41,16 @@ public class Usuario {
 	public void setNombreUsuario(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
 	}
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasenia() {
+		return contrasenia;
 	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
-	}
-	public Role getRole() {
-		return role;
-	}
-	public void setRole(Role role) {
-		this.role = role;
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
 	}
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", nombreUsuario=" + nombreUsuario + ", contraseña="
-				+ contraseña + ", role=" + role + "]";
-	}
-	
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", nombreUsuario=" + nombreUsuario + ", contrasenia="
+				+ contrasenia + "]";
+	}	
 	
 }

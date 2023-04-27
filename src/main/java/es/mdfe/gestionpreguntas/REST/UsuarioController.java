@@ -68,6 +68,7 @@ public class UsuarioController {
 		Usuario usuario = repositorio.findById(id).map(usr -> {
 			usr.setNombre(model.getNombre());
 			usr.setNombreUsuario(model.getNombreUsuario());
+			usr.setContrasenia(model.getContrasenia());
 			//usr.setRole(model.getRole());
 			return repositorio.save(usr);
 		})

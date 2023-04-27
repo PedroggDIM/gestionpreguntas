@@ -10,7 +10,7 @@ public class UsuarioModel extends RepresentationModel<UsuarioModel> {
 	
 	private String nombre;
 	private String nombreUsuario;
-	private Role role;
+	private String contrasenia;
 	
 	public String getNombre() {
 		return nombre;
@@ -24,11 +24,16 @@ public class UsuarioModel extends RepresentationModel<UsuarioModel> {
 	public void setNombreUsuario(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
 	}
-	public Role getRole() {
-		return role;
+	public String getContrasenia() {
+		return contrasenia;
 	}
-	public void setRole(Role role) {
-		this.role = role;
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
+	}
+	@Override
+	public String toString() {
+		return "UsuarioModel [nombre=" + nombre + ", nombreUsuario=" + nombreUsuario + ", contrasenia=" + contrasenia
+				+ "]";
 	}
 
 	

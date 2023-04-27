@@ -7,9 +7,8 @@ import org.springframework.hateoas.server.core.Relation;
 public class UsuarioPostModel extends RepresentationModel<UsuarioPostModel>{
 	private String nombre;
 	private String nombreUsuario;
-	private String contraseña;
-	private String telefono;
-	
+	private String contrasenia;
+//	private String telefono;
 	public String getNombre() {
 		return nombre;
 	}
@@ -22,22 +21,22 @@ public class UsuarioPostModel extends RepresentationModel<UsuarioPostModel>{
 	public void setNombreUsuario(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
 	}
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasenia() {
+		return contrasenia;
 	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
 	}
-	public String getTelefono() {
-		return telefono;
-	}
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
+//	public String getTelefono() {
+//		return telefono;
+//	}
+//	public void setTelefono(String telefono) {
+//		this.telefono = telefono;
+//	}
 	@Override
 	public String toString() {
-		return "UsuarioPostModel [nombre=" + nombre + ", nombreUsuario=" + nombreUsuario + ", contraseña=" + contraseña
-				+ ", telefono=" + telefono + "]";
+		return "UsuarioPostModel [nombre=" + nombre + ", nombreUsuario=" + nombreUsuario + ", contrasenia="
+				+ contrasenia + "]";
 	}	
 	
 }

@@ -16,7 +16,7 @@ public class UssuarioPostAssembler implements RepresentationModelAssembler<Usuar
 		UsuarioPostModel model = new UsuarioPostModel();
 		model.setNombre(entity.getNombre());
 		model.setNombreUsuario(entity.getNombreUsuario());
-		model.setContraseña(entity.getContraseña());
+		model.setContrasenia(entity.getContrasenia());
 		model.add(
 				linkTo(methodOn(UsuarioController.class).one(entity.getId())).withSelfRel()
 				);
@@ -27,7 +27,7 @@ public class UssuarioPostAssembler implements RepresentationModelAssembler<Usuar
 		Usuario usuario = new Usuario();
 		usuario.setNombre(model.getNombre());
 		usuario.setNombreUsuario(model.getNombreUsuario());
-		usuario.setContraseña(model.getContraseña());
+		usuario.setContrasenia(model.getContrasenia());
 		return usuario;
 	}
 
