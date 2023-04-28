@@ -25,15 +25,19 @@ public class UsuarioController {
 	private final UsuarioPutAssembler putAssembler;
 	private final UsuarioListaAssembler listaAssembler;
 	private final Logger log;
+	private final PreguntaListaAssembler prListaAssembler;
 
 	UsuarioController(UsuarioRepositorio repositorio, UsuarioAssembler assembler,
-			UssuarioPostAssembler postAssembler, UsuarioPutAssembler putAssembler,UsuarioListaAssembler listaAssembler) {
+			UssuarioPostAssembler postAssembler, UsuarioPutAssembler putAssembler,UsuarioListaAssembler listaAssembler,
+			PreguntaListaAssembler prListaAssembler) {
 		this.repositorio = repositorio;
 		this.assembler = assembler;
 		this.postAsembler = postAssembler;
 		this.listaAssembler = listaAssembler;
 		this.putAssembler = putAssembler;
 		log = GestionpreguntasApplication.log;
+		this.prListaAssembler = prListaAssembler;
+		
 	}
 
 	@GetMapping("{id}")
@@ -54,7 +58,15 @@ public class UsuarioController {
 		return listaAssembler.toCollection(
 				repositorio.findUsuarioByNombre(nombreUsuario)
 				);
-	}	
+	}
+    
+	//Metodo para recuperara todas las preguntas que tiene el usuario.	
+	@GetMapping("{id}/preguntas")
+	public CollectionModel<PreguntaListaModel> preguntasDeUsuario(@PathVariable Long id) {
+		Usuario usuario = repositorio.findById(id)
+				.orElseThrow(() -> new RegisterNotFoundException(id, "usuario"));
+	    return prListaAssembler.toCollection(usuario.getPreguntas());
+	}
 
 	@PostMapping
 	public UsuarioModel add(@RequestBody UsuarioPostModel model) {
@@ -76,6 +88,7 @@ public class UsuarioController {
 		log.info("Actualizado " + usuario);
 		return assembler.toModel(usuario);
 	}
+	
 	
 	@DeleteMapping("{id}")
 	public void delete(@PathVariable Long id) {

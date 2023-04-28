@@ -20,8 +20,11 @@ public class UsuarioAssembler implements RepresentationModelAssembler<Usuario, U
 		model.setContrasenia(entity.getContrasenia());
 //		model.setRole(entity.getRole());
 		model.add(
-				linkTo(methodOn(UsuarioController.class).one(entity.getId())).withSelfRel()
-				);
+				linkTo(methodOn(UsuarioController.class).one(entity.getId())).withSelfRel(),				
+				linkTo(methodOn(UsuarioController.class).preguntasDeUsuario(entity.getId())).withRel("preguntas")
+				//Familia como es una clase se carga aquí
+	      	//	linkTo(methodOn(FamiliaController.class).one(entity.getFamilia().getId())).withSelfRel()	
+				 );
 		return model;
 	}
 	

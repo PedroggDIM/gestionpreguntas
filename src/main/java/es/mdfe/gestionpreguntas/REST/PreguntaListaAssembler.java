@@ -10,29 +10,28 @@ import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;
 
+import es.mdfe.gestionpreguntas.entidades.Pregunta;
 import es.mdfe.gestionpreguntas.entidades.Usuario;
 
 @Component
-public class UsuarioListaAssembler implements RepresentationModelAssembler<Usuario, UsuarioListaModel>{
+public class PreguntaListaAssembler implements RepresentationModelAssembler<Pregunta, PreguntaListaModel>{
 
 	@Override
-	public UsuarioListaModel toModel(Usuario entity) {
-		UsuarioListaModel model = new UsuarioListaModel();
-		model.setNombre(entity.getNombre());
-		model.setNombreUsuario(entity.getNombreUsuario());
-		model.setContrasenia(entity.getContrasenia());
+	public PreguntaListaModel toModel(Pregunta entity) {
+		PreguntaListaModel model = new PreguntaListaModel();		
+		model.setEnunciado(entity.getEnunciado());
 		model.add(
-				linkTo(methodOn(UsuarioController.class).one(entity.getId())).withSelfRel()
+				linkTo(methodOn(PreguntaController.class).one(entity.getId())).withSelfRel()
 				);
 		return model;
 	}
 	
-	public CollectionModel<UsuarioListaModel> toCollection(List<Usuario> lista) {
-		CollectionModel<UsuarioListaModel> collection = CollectionModel.of(
+	public CollectionModel<PreguntaListaModel> toCollection(List<Pregunta> lista) {
+		CollectionModel<PreguntaListaModel> collection = CollectionModel.of(
 				lista.stream().map(this::toModel).collect(Collectors.toList())
 				);
 		collection.add(
-				linkTo(methodOn(UsuarioController.class).all()).withRel("usuarios")
+				linkTo(methodOn(PreguntaController.class).all()).withRel("preguntas")
 				);
 		return collection;
 	}
