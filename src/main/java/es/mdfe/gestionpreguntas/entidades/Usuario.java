@@ -37,12 +37,13 @@ public class Usuario {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@JsonIgnore
 	private Long id;
+	
 	public Role getRole() {
 		return null;
 	}
-	public void setRole(Role role) {
-		this.role = role;
-	}
+//	public void setRole(Role role) {
+//		this.role = role;
+//	}
 	private String nombre;
 	private String nombreUsuario;
 	private String contrasenia;

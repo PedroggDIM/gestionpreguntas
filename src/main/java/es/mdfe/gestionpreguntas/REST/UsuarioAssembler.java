@@ -25,12 +25,12 @@ public class UsuarioAssembler implements RepresentationModelAssembler<Usuario, U
 		
 		if (entity.getRole() == Role.administrador) {
 			model.setTelefono(((Administrador) entity).getTelefono());
+			model.setRol(Role.administrador);
 		} else if (entity.getRole() == Role.noAdministrador) {
 			model.setDpto(((NoAdministrador)entity).getDpto());
 			model.setTipo(((NoAdministrador)entity).getTipo());
+			model.setRol(Role.noAdministrador);
 		}
-
-		
 		
 		model.add(
 				linkTo(methodOn(UsuarioController.class).one(entity.getId())).withSelfRel(),				

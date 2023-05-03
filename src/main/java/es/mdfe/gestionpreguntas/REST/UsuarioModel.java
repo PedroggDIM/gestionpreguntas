@@ -20,6 +20,7 @@ public class UsuarioModel extends RepresentationModel<UsuarioModel> {
    //atributos del noAdministrador
     private Dpto dpto;
     private Tipo tipo;
+    
 	public String getNombre() {
 		return nombre;
 	}

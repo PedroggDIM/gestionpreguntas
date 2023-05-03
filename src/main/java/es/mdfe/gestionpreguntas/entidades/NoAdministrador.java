@@ -35,7 +35,7 @@ public class NoAdministrador extends Usuario {
 	}
     
 	public Role getRole() {
-		return Role.administrador;
+		return Role.noAdministrador;
 		
 	}
 	
