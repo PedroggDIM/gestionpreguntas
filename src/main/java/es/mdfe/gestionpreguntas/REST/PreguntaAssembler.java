@@ -31,6 +31,7 @@ public class PreguntaAssembler implements RepresentationModelAssembler<Pregunta,
 		Pregunta pregunta = new Pregunta();		
 		pregunta.setEnunciado(model.getEnunciado());
 		return pregunta;
+		// 
 	}
 	
 }
