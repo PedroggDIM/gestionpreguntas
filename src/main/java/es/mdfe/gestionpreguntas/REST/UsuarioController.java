@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import es.mdfe.gestionpreguntas.GestionpreguntasApplication;
 import es.mdfe.gestionpreguntas.entidades.Usuario;
 import es.mdfe.gestionpreguntas.repositorios.UsuarioRepositorio;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -69,7 +70,7 @@ public class UsuarioController {
 	}
 
 	@PostMapping
-	public UsuarioModel add(@RequestBody UsuarioPostModel model) {
+	public UsuarioModel add(@Valid @RequestBody UsuarioPostModel model) {
 		Usuario usuario = repositorio.save(postAsembler.toEntity(model));
 		log.info("Añadido " + usuario);
 		return assembler.toModel(usuario);

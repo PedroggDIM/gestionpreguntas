@@ -15,11 +15,13 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.DiscriminatorType;
 import jakarta.persistence.DiscriminatorValue;
+
 
 @Entity
 @Table(name="USUARIOS")
@@ -45,8 +47,12 @@ public class Usuario {
 //		this.role = role;
 //	}
 	private String nombre;
+	
+	@NotBlank(message="nombre de usuario es un campo obligatorio de la clase usuario")
 	private String nombreUsuario;
+	@NotBlank(message="contrasena es un campo obligatorio de la clase usuario")
 	private String contrasenia;
+	
 	private Role role;
 	
 	@OneToMany(mappedBy = "usuario")
