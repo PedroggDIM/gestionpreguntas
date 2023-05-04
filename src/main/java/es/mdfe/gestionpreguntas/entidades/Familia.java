@@ -21,7 +21,7 @@ import jakarta.persistence.Table;
 //import jakarta.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "FAMILIAS")
+@Table(name="familias")
 @JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 //@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "usuarios"})
 

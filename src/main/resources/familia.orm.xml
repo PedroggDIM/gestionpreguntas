@@ -6,7 +6,7 @@
     <mapped-superclass class="es.mdef.support.Familia" access="FIELD">
         <attributes> 
          <basic name="enunciado">
-			<column name="enunciado" unique="true"  nullable="false" />
+			<column name="enunciado" unique="false"  nullable="false" />
 		</basic>
         </attributes>
      </mapped-superclass>

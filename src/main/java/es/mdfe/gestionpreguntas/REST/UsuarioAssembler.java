@@ -36,7 +36,7 @@ public class UsuarioAssembler implements RepresentationModelAssembler<Usuario, U
 				linkTo(methodOn(UsuarioController.class).one(entity.getId())).withSelfRel(),				
 				linkTo(methodOn(UsuarioController.class).preguntasDeUsuario(entity.getId())).withRel("preguntas")
 				//Familia como es una clase se carga aquí
-	      	//	linkTo(methodOn(FamiliaController.class).one(entity.getFamilia().getId())).withSelfRel()	
+	     // 		linkTo(methodOn(FamiliaController.class).one(entity.getFamilia().getId())).withSelfRel()	
 				 );
 		return model;
 	}

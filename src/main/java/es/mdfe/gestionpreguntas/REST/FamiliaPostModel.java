@@ -5,8 +5,8 @@ import org.springframework.hateoas.server.core.Relation;
 
 @Relation(itemRelation = "familia")
 public class FamiliaPostModel extends RepresentationModel<FamiliaPostModel> {
-	//@NotBlank(message="enunciado es un campo obligatorio de la clase familia")
-	private String enunciado;
+
+private String enunciado;
 	
 	public String getEnunciado() {
 		return enunciado;

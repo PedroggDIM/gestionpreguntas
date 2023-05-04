@@ -55,6 +55,7 @@ public class PreguntaController {
 	
 	@PostMapping
 	public PreguntaModel add(@RequestBody PreguntaPostModel model) {
+		System.out.println(model);
 		Pregunta pregunta = repositorio.save(postAsembler.toEntity(model));
 		log.info("Añadido " + pregunta);
 		return assembler.toModel(pregunta);
