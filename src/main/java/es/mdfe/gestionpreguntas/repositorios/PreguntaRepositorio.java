@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import es.mdfe.gestionpreguntas.entidades.Pregunta;
 
 public interface PreguntaRepositorio extends JpaRepository<Pregunta, Long>{
-          List<Pregunta> findPreguntasByEnunciado(String enunciado);
+          List<Pregunta> findPreguntaByUsuario(Long id);
 }
