@@ -31,7 +31,7 @@ public class Usuario {
 	private String nombreUsuario;
 	@NotBlank(message="contrasena es un campo obligatorio de la clase usuario")
 	private String contrasenia;	
-	private Role role;
+	//private Role role;
 	
 	public static enum Role {
 		administrador,
