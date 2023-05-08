@@ -10,7 +10,10 @@ import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;
 
+import es.mdfe.gestionpreguntas.entidades.Administrador;
+import es.mdfe.gestionpreguntas.entidades.NoAdministrador;
 import es.mdfe.gestionpreguntas.entidades.Usuario;
+import es.mdfe.gestionpreguntas.entidades.Usuario.Role;
 
 @Component
 public class UsuarioListaAssembler implements RepresentationModelAssembler<Usuario, UsuarioListaModel>{
@@ -19,8 +22,14 @@ public class UsuarioListaAssembler implements RepresentationModelAssembler<Usuar
 	public UsuarioListaModel toModel(Usuario entity) {
 		UsuarioListaModel model = new UsuarioListaModel();
 		model.setNombre(entity.getNombre());
-		model.setNombreUsuario(entity.getNombreUsuario());
-		model.setContrasenia(entity.getContrasenia());
+		if (entity.getRole() == Role.administrador) {
+			model.setTelefono(((Administrador) entity).getTelefono());
+			model.setRol(Role.administrador);
+		} else if (entity.getRole() == Role.noAdministrador) {
+			model.setDpto(((NoAdministrador)entity).getDpto());
+			model.setTipo(((NoAdministrador)entity).getTipo());
+			model.setRol(Role.noAdministrador);
+		}
 		model.add(
 				linkTo(methodOn(UsuarioController.class).one(entity.getId())).withSelfRel()
 				);
@@ -36,7 +45,4 @@ public class UsuarioListaAssembler implements RepresentationModelAssembler<Usuar
 				);
 		return collection;
 	}
-
-
-
 }

@@ -6,7 +6,6 @@ import java.util.Set;
 
 import org.slf4j.Logger;
 import org.springframework.hateoas.CollectionModel;
-import org.springframework.hateoas.EntityModel;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,9 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import es.mdfe.gestionpreguntas.entidades.Familia;
+
 //import es.mdef.support.Familia;
 import es.mdfe.gestionpreguntas.GestionpreguntasApplication;
+import es.mdfe.gestionpreguntas.entidades.Familia;
 import es.mdfe.gestionpreguntas.entidades.Pregunta;
 import es.mdfe.gestionpreguntas.entidades.Usuario;
 import es.mdfe.gestionpreguntas.repositorios.PreguntaRepositorio;
@@ -49,8 +49,7 @@ public class UsuarioController {
 		log = GestionpreguntasApplication.log;
 		this.prListaAssembler = prListaAssembler;
 		this.repositorioPreguntas = repositorioPreguntas;
-		this.familiaListaAssembler = familiaListaAssembler;
-		
+		this.familiaListaAssembler = familiaListaAssembler;		
 	}
 
 	@GetMapping("{id}")
@@ -92,9 +91,7 @@ public class UsuarioController {
 	public UsuarioModel edit(@PathVariable Long id, @RequestBody UsuarioPutModel model) {
 		Usuario usuario = repositorio.findById(id).map(usr -> {
 			usr.setNombre(model.getNombre());
-			usr.setNombreUsuario(model.getNombreUsuario());
-			usr.setContrasenia(model.getContrasenia());
-			//usr.setRole(model.getRole());
+			usr.setNombreUsuario(model.getNombreUsuario());	
 			return repositorio.save(usr);
 		})
 		.orElseThrow(() -> new RegisterNotFoundException(id, "usuario"));

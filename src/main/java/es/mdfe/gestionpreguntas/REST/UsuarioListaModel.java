@@ -3,37 +3,51 @@ package es.mdfe.gestionpreguntas.REST;
 import org.springframework.hateoas.RepresentationModel;
 import org.springframework.hateoas.server.core.Relation;
 
+import es.mdfe.gestionpreguntas.entidades.NoAdministrador.Dpto;
+import es.mdfe.gestionpreguntas.entidades.NoAdministrador.Tipo;
 import es.mdfe.gestionpreguntas.entidades.Usuario.Role;
 
 @Relation(collectionRelation = "usuarios")
 public class UsuarioListaModel extends RepresentationModel<UsuarioListaModel> {
 
 	private String nombre;
-	private String nombreUsuario;
-	private String contrasenia;
-	//private Role role;
+	
+	private Role rol;
+	//atributo del administrador
+    private String telefono;
+   //atributos del noAdministrador
+    private Dpto dpto;
+    private Tipo tipo;
+    
 	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getNombreUsuario() {
-		return nombreUsuario;
+	public Role getRol() {
+		return rol;
 	}
-	public void setNombreUsuario(String nombreUsuario) {
-		this.nombreUsuario = nombreUsuario;
+	public void setRol(Role rol) {
+		this.rol = rol;
 	}
-	public String getContrasenia() {
-		return contrasenia;
+	public String getTelefono() {
+		return telefono;
 	}
-	public void setContrasenia(String contrasenia) {
-		this.contrasenia = contrasenia;
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
-	@Override
-	public String toString() {
-		return "UsuarioListaModel [nombre=" + nombre + ", nombreUsuario=" + nombreUsuario + ", contrasenia="
-				+ contrasenia + "]";
+	public Dpto getDpto() {
+		return dpto;
 	}
+	public void setDpto(Dpto dpto) {
+		this.dpto = dpto;
+	}
+	public Tipo getTipo() {
+		return tipo;
+	}
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
+	}  	
 	
 }

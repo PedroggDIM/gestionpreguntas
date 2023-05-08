@@ -1,17 +1,22 @@
 package es.mdfe.gestionpreguntas.REST;
 
-import javax.management.relation.Role;
-import javax.print.DocFlavor.STRING;
-
 import org.springframework.hateoas.RepresentationModel;
+
+import es.mdfe.gestionpreguntas.entidades.NoAdministrador.Dpto;
+import es.mdfe.gestionpreguntas.entidades.NoAdministrador.Tipo;
+import es.mdfe.gestionpreguntas.entidades.Usuario.Role;
 
 public class UsuarioPutModel extends RepresentationModel<UsuarioPutModel>{
 	
 	private String nombre;
 	private String nombreUsuario;
-	private String contrasenia;
-//	private String telefono;
-//	private Role role;
+	
+	private Role rol;
+	//atributo del administrador
+    private String telefono;
+   //atributos del noAdministrador
+    private Dpto dpto;
+    private Tipo tipo;
 	public String getNombre() {
 		return nombre;
 	}
@@ -24,16 +29,31 @@ public class UsuarioPutModel extends RepresentationModel<UsuarioPutModel>{
 	public void setNombreUsuario(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
 	}
-	public String getContrasenia() {
-		return contrasenia;
+	public Role getRol() {
+		return rol;
 	}
-	public void setContrasenia(String contrasenia) {
-		this.contrasenia = contrasenia;
+	public void setRol(Role rol) {
+		this.rol = rol;
 	}
-	@Override
-	public String toString() {
-		return "UsuarioPutModel [nombre=" + nombre + ", nombreUsuario=" + nombreUsuario + ", contrasenia=" + contrasenia
-				+ "]";
-	}	
+	public String getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+	public Dpto getDpto() {
+		return dpto;
+	}
+	public void setDpto(Dpto dpto) {
+		this.dpto = dpto;
+	}
+	public Tipo getTipo() {
+		return tipo;
+	}
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
+	}   
+
+	
 	
 }

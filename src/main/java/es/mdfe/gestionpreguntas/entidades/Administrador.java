@@ -1,7 +1,6 @@
 package es.mdfe.gestionpreguntas.entidades;
 
 import jakarta.persistence.Entity;
-
 import jakarta.persistence.DiscriminatorValue;
 
 @Entity
@@ -17,19 +16,13 @@ public class Administrador extends Usuario {
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
-	}
-
+	}	
 	@Override
-	public String toString() {
-		return "Administrador [telefono=" + telefono + "]";
-	}
-	
 	public Role getRole() {
-		return Role.administrador;
-		
+		return Role.administrador;		
 	}
-	
-	
-
-
+	@Override
+	public Role setRole() {		
+		return Role.administrador;
+	}
 }

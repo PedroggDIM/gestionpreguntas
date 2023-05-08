@@ -1,8 +1,7 @@
 package es.mdfe.gestionpreguntas.entidades;
 
-import jakarta.persistence.Entity;
-import es.mdfe.gestionpreguntas.entidades.Usuario.Role;
 import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("N")
@@ -21,6 +20,15 @@ public class NoAdministrador extends Usuario {
 	private Tipo tipo;
 	private Dpto dpto;
 	
+	@Override
+	public Role getRole() {
+		return Role.noAdministrador;
+	}
+    @Override
+	public Role setRole() {		
+		return Role.noAdministrador;
+	}
+	
 	public Tipo getTipo() {
 		return tipo;
 	}
@@ -33,16 +41,6 @@ public class NoAdministrador extends Usuario {
 	public void setDpto(Dpto dpto) {
 		this.dpto = dpto;
 	}
-    
-	public Role getRole() {
-		return Role.noAdministrador;
-		
-	}
-	
-	
-	
-	
-
 
 }
 	

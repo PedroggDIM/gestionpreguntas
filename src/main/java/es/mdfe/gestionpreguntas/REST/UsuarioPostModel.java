@@ -11,16 +11,14 @@ import es.mdfe.gestionpreguntas.entidades.Usuario.Role;
 public class UsuarioPostModel extends RepresentationModel<UsuarioPostModel>{
 	private String nombre;
 	private String nombreUsuario;
-	private String contrasenia;
-	
+	private String contrasenia;	
 	
 	private Role rol;
 	//atributo del administrador
     private String telefono;
    //atributos del noAdministrador
     private Dpto dpto;
-    private Tipo tipo;
-        
+    private Tipo tipo;        
 
 	public Role getRol() {
 		return rol;
@@ -64,16 +62,4 @@ public class UsuarioPostModel extends RepresentationModel<UsuarioPostModel>{
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
-//	public String getTelefono() {
-//		return telefono;
-//	}
-//	public void setTelefono(String telefono) {
-//		this.telefono = telefono;
-//	}
-	@Override
-	public String toString() {
-		return "UsuarioPostModel [nombre=" + nombre + ", nombreUsuario=" + nombreUsuario + ", contrasenia="
-				+ contrasenia + "]";
-	}	
-	
 }

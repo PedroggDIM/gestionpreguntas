@@ -2,7 +2,6 @@ package es.mdfe.gestionpreguntas.REST;
 
 import org.springframework.hateoas.RepresentationModel;
 import org.springframework.hateoas.server.core.Relation;
-
 import es.mdfe.gestionpreguntas.entidades.NoAdministrador.Dpto;
 import es.mdfe.gestionpreguntas.entidades.NoAdministrador.Tipo;
 import es.mdfe.gestionpreguntas.entidades.Usuario.Role;
@@ -63,15 +62,5 @@ public class UsuarioModel extends RepresentationModel<UsuarioModel> {
 	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
-	@Override
-	public String toString() {
-		return "UsuarioModel [nombre=" + nombre + ", nombreUsuario=" + nombreUsuario + ", contrasenia=" + contrasenia
-				+ ", rol=" + rol + ", telefono=" + telefono + ", dpto=" + dpto + ", tipo=" + tipo + "]";
-	}
- 
-	
-	
-
-
 	
 }
