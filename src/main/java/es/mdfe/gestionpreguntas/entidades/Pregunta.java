@@ -11,25 +11,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-@Entity
-@Table(name="PREGUNTAS")
+
 public class Pregunta {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@JsonIgnore
-	private Long id;
-	
+
+	private Long id;	
 	private String enunciado;
-	
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "UsuarioId")
 	private Usuario usuario;
-	
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "FamiliaId")
 	private Familia familia;
+	
 	
 	public Long getId() {
 		return id;

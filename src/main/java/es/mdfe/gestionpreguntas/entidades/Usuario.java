@@ -15,21 +15,14 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
-@Entity
-@Table(name="USUARIOS")
 
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE) 
-@DiscriminatorColumn(name="rol_usuario", discriminatorType = DiscriminatorType.CHAR)
-@DiscriminatorValue("null")
 public class Usuario {	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@JsonIgnore
+
 	private Long id;
 	private String nombre;	
-	@NotBlank(message="nombre de usuario es un campo obligatorio de la clase usuario")
+
 	private String nombreUsuario;
-	@NotBlank(message="contrasena es un campo obligatorio de la clase usuario")
+
 	private String contrasenia;	
 	//private Role role;
 	
@@ -44,7 +37,7 @@ public class Usuario {
 		return null;
 	}	
 	// en Usuario en un List recupero todas las preguntas que tiene un usuario.
-	@OneToMany(mappedBy = "usuario")
+
 	List<Pregunta>preguntas;	
 	
 

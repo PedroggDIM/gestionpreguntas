@@ -3,13 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd" 
 	version="1.0"> 
-    <mapped-superclass class="es.mdef.support.Familia" access="FIELD">
+    <entity class="es.mdfe.gestionpreguntas.entidades.NoAdministrador" access="FIELD">
+		<discriminator-value>N</discriminator-value>
         <attributes> 
-		
-        <basic name="enunciado" optional="false"/> 
-        
-		
-		
+            <basic name="tipo"/>
+            <basic name="dpto"/>
         </attributes>
-     </mapped-superclass>
+     </entity>
 </entity-mappings>
