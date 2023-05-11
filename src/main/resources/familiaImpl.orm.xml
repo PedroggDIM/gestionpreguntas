@@ -10,7 +10,7 @@
                 <generated-value strategy="IDENTITY"/> 
          </id> 
          
-         <one-to-many name="preguntas" mapped-by="usuario"/>	
+         <one-to-many name="preguntas" mapped-by="familia"/>	
 		
         </attributes>
      </entity>
