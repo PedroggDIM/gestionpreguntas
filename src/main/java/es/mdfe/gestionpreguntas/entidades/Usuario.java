@@ -22,7 +22,7 @@ public class Usuario {
 	private String nombre;	
 
 	private String nombreUsuario;
-
+    //comentario
 	private String contrasenia;	
 	//private Role role;
 	
